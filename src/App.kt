@@ -8,6 +8,8 @@
  * LICENSE file in the root of the Project.
  */
 
+import kotlin.io.*
+
 /**
  * Read in provided text file, parse syntax and add to provided RDF file.
  */
