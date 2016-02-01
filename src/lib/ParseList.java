@@ -27,23 +27,33 @@ public final class ParseList {
                         Integer.toString(toParse.size()), "\n")
         );
 
+        // check whether we are in a proper tag block. if not ignore all body lines until a next
+        // proper tag block starts.
+        Boolean properTag = true;
+
         for (String currLine : toParse) {
-            if (currLine.contains("(#)") & currLine.endsWith("#)")) {
+            if (currLine.contains("(#)")) {
 
-                System.out.println("[DEBUG] TagLine");
+                if (!currLine.endsWith("#)")) {
+                    System.out.println(String.join("", "[WARNING] Encountered incomplete Tag line. ",
+                            "All lines until the next proper tag line will be ignored."));
+                    properTag = false;
+                } else {
+                    properTag = true;
+                    System.out.println("[DEBUG] TagLine");
 
-                retList.add(new TaggedEntity());
+                    retList.add(new TaggedEntity());
 
-                String[] ls = currLine
-                        .substring(currLine.indexOf("(#)")+"(#)".length(),
-                                currLine.length()-"#)".length())
-                        .split(",");
+                    String[] ls = currLine
+                            .substring(currLine.indexOf("(#)") + "(#)".length(),
+                                    currLine.length() - "#)".length())
+                            .split(",");
 
-                for (String s : ls) {
-                    retList.get(retList.size()-1).getTags().add(s);
+                    for (String s : ls) {
+                        retList.get(retList.size() - 1).getTags().add(s);
+                    }
                 }
-
-            } else if (!retList.isEmpty())  {
+            } else if (!retList.isEmpty() & properTag)  {
                 System.out.println("[DEBUG] BodyLine");
 
                 String currString = retList.get(retList.size()-1).getBody();
