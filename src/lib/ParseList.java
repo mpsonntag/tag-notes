@@ -21,10 +21,28 @@ public final class ParseList {
     public static List<TaggedEntity> parseStringList(final List<String> toParse) {
 
         List<TaggedEntity> retList = new ArrayList<>();
+
         System.out.println(
                 String.join("", "List has a length of: ",
-                        Integer.toString(toParse.size()))
+                        Integer.toString(toParse.size()), "\n")
         );
+
+        for (String currLine : toParse) {
+            if (currLine.contains("(#)") & currLine.endsWith("#)")) {
+                System.out.println("TagLine");
+                System.out.println(currLine);
+
+                retList.add(new TaggedEntity());
+            } else {
+                System.out.println("BodyLine");
+                System.out.println(currLine);
+            }
+        }
+
+        System.out.println(String.join("", "# of Tagged entities: ",
+                Integer.toString(retList.size()))
+        );
+
         return retList;
     }
 
