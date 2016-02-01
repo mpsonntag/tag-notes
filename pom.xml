@@ -153,7 +153,8 @@
                 <version>3.0.2</version>
                 <configuration>
                     <!-- To avoid findbugs errors in dependency jars -->
-                    <onlyAnalyze>org.g_node.*</onlyAnalyze>
+                    <onlyAnalyze>org.mps.*</onlyAnalyze>
+                    <excludeFilterFile>findBugsExclude.xml</excludeFilterFile>
                     <!--
                         Enables analysis which takes more memory but finds more bugs.
                         If you run out of memory, changes the value of the effort element
