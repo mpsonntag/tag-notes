@@ -14,13 +14,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Prototype Class.
  * Parse list of Strings to a List of tagged entities.
  */
 public final class ParseList {
 
+    /**
+     * Prototype method.
+     * Static method parsing a list of strings to a list of {@link TaggedEntity}.
+     * @param toParse List containing (#)...#) tagged headers and body text.
+     * @return List of {@link TaggedEntity}.
+     */
     public static List<TaggedEntity> parseStringList(final List<String> toParse) {
 
-        List<TaggedEntity> retList = new ArrayList<>();
+        final List<TaggedEntity> retList = new ArrayList<>();
 
         System.out.println(
                 String.join("", "[DEBUG] List has a length of: ",
@@ -49,7 +56,7 @@ public final class ParseList {
 
                     retList.add(new TaggedEntity());
 
-                    String[] ls = currLine
+                    final String[] ls = currLine
                             .substring(currLine.indexOf("(#)") + "(#)".length(),
                                     currLine.length() - "#)".length())
                             .split(",");
@@ -61,8 +68,8 @@ public final class ParseList {
             } else if (!retList.isEmpty() & properTag)  {
                 System.out.println(String.join("", "[DEBUG:", currLineNr.toString(), "] BodyLine"));
 
-                String currString = retList.get(retList.size()-1).getBody();
-                retList.get(retList.size()-1).setBody(
+                final String currString = retList.get(retList.size() - 1).getBody();
+                retList.get(retList.size() - 1).setBody(
                         String.join("", currString, currLine, "\n")
                 );
             } else {
