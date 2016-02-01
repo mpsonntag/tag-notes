@@ -6,10 +6,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.mps</groupId>
-    <artifactId>tag-nodes</artifactId>
+    <artifactId>tag-notes</artifactId>
     <packaging>jar</packaging>
     <version>1.01-Beta</version>
-    <name>tag-nodes</name>
+    <name>tag-notes</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -114,9 +114,9 @@
                     <aggregate>true</aggregate>
                     <show>private</show>
                     <nohelp>true</nohelp>
-                    <header>tag-notes, ${project.version}</header>
-                    <footer>tag-notes, ${project.version}</footer>
-                    <doctitle>tag-notes, ${project.version}</doctitle>
+                    <header>${project.name}, ${project.version}</header>
+                    <footer>${project.name}, ${project.version}</footer>
+                    <doctitle>${project.name}, ${project.version}</doctitle>
                 </configuration>
             </plugin>
 
