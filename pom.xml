@@ -51,10 +51,6 @@
                         </goals>
                     </execution>
                 </executions>
-
-                <configuration>
-                    <scanForAnnotations>false</scanForAnnotations>
-                </configuration>
             </plugin>
 
             <!-- some standard maven plugins for compilation and jar creation -->
