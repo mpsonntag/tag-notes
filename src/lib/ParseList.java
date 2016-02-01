@@ -30,12 +30,16 @@ public final class ParseList {
         // check whether we are in a proper tag block. if not ignore all body lines until a next
         // proper tag block starts.
         Boolean properTag = true;
+        Integer currLineNr = 0;
 
         for (String currLine : toParse) {
+            currLineNr = currLineNr + 1;
+
             if (currLine.contains("(#)")) {
 
                 if (!currLine.endsWith("#)")) {
-                    System.out.println(String.join("", "[WARNING] Encountered incomplete Tag line. ",
+                    System.out.println(String.join("", "[WARNING] Encountered incomplete Tag line at line ",
+                            currLineNr.toString(), ". ",
                             "All lines until the next proper tag line will be ignored."));
                     properTag = false;
                 } else {
