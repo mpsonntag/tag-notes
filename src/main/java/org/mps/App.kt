@@ -1,3 +1,5 @@
+package main.org.mps.java
+
 /**
  * Copyright (c) 2016, Michael Sonntag
  *
@@ -8,8 +10,8 @@
  * LICENSE file in the root of the Project.
  */
 
-import lib.HandleFiles
-import lib.ParseList
+import main.org.mps.java.lib.HandleFiles
+import main.org.mps.java.lib.ParseList
 
 /**
  * Read in provided text file, parse syntax and add to provided RDF file.

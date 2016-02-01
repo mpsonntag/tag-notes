@@ -8,7 +8,7 @@
  * LICENSE file in the root of the Project.
  */
 
-package lib;
+package org.mps.lib;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -26,7 +26,7 @@ public class HandleFiles {
     public List<String> openTextFile() {
 
         final String fileName = "parse.txt";
-        final String getFilePath = Paths.get(Paths.get("").toAbsolutePath().toString(), "src", "resources", fileName).toString();
+        final String getFilePath = Paths.get(Paths.get("").toAbsolutePath().toString(), "src", "main/resources", fileName).toString();
 
         // Probably not the wisest thing to do to create a list from a text file.
         // But for getting the thing on the road it should be ok for now.

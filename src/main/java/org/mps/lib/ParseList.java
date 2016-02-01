@@ -8,7 +8,7 @@
  * LICENSE file in the root of the Project.
  */
 
-package lib;
+package org.mps.lib;
 
 import java.util.ArrayList;
 import java.util.List;
