@@ -18,7 +18,8 @@ import org.mps.lib.ParseList
  */
 fun main(args: Array<String>) {
 
-    val getFileStr = HandleFiles().openTextFile()
+    val importFile = "parse.txt"
+    val getFileStr = HandleFiles().textFileToList(importFile)
     val getEntityList = ParseList.parseStringList(getFileStr)
 
 }

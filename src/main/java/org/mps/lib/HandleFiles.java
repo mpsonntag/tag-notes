@@ -29,24 +29,53 @@ public class HandleFiles {
      * Opening a text file from resources and return the content as a list of Strings.
      * @return List of strings, each list entry corresponds to a line from the text file.
      */
-    public final List<String> openTextFile() {
+    public final List<String> textFileToList() {
 
         final String fileName = "parse.txt";
-        final String getFilePath = Paths.get(
-                Paths.get("").toAbsolutePath().toString(), "src", "main/resources", fileName).toString();
+        final String getFilePath = Paths.get(this.getProjectResourcesPath(), fileName).toString();
 
-        // Probably not the wisest thing to do to create a list from a text file.
-        // But for getting the thing on the road it should be ok for now.
+        return this.streamTextFileToList(getFilePath);
+    }
+
+    /**
+     * Prototype method.
+     * Opening a text file from resources and return the content as a list of Strings.
+     * @param fileName String containing the name of the input text fiile.
+     * @return List of strings, each list entry corresponds to a line from the text file.
+     */
+    public final List<String> textFileToList(final String fileName) {
+        final String getFilePath = Paths.get(this.getProjectResourcesPath(), fileName).toString();
+
+        return this.streamTextFileToList(getFilePath);
+    }
+
+    /**
+     * Prototype method.
+     * Opening a text file from resources and return the content as a list of Strings.
+     * NOTE: Probably not the wisest thing to do to create a list from a text file.
+     * But for getting the thing on the road it should be ok for now.
+     * @param filePath String containing the path to the input text file.
+     * @return List of strings, each list entry corresponds to a line from the text file.
+     */
+    private List<String> streamTextFileToList(final String filePath) {
         List<String> retList = new ArrayList<>();
 
         try {
-            final Stream<String> stream = Files.lines(Paths.get(getFilePath));
+            final Stream<String> stream = Files.lines(Paths.get(filePath));
             retList = stream.collect(Collectors.toList());
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         return retList;
+    }
+
+    /**
+     * Return a string containing the path to the projects resources folder.
+     * @return See description.
+     */
+    private String getProjectResourcesPath() {
+        return Paths.get(Paths.get("").toAbsolutePath().toString(), "src", "main", "resources").toString();
     }
 
 }
