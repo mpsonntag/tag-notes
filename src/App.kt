@@ -8,11 +8,16 @@
  * LICENSE file in the root of the Project.
  */
 
+import lib.HandleFiles
 import kotlin.io.*
 
 /**
  * Read in provided text file, parse syntax and add to provided RDF file.
  */
 fun main(args: Array<String>) {
-    println("First line ever! (Yay \\o/)")
+
+    val getFileStr = HandleFiles().openText()
+
+    println(getFileStr)
+
 }
