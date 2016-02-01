@@ -74,7 +74,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>org.g_node.App</mainClass>
+                            <mainClass>org.mps.App</mainClass>
                         </manifest>
                     </archive>
                     <excludes>
@@ -114,9 +114,9 @@
                     <aggregate>true</aggregate>
                     <show>private</show>
                     <nohelp>true</nohelp>
-                    <header>crawler-to-rdf, ${project.version}</header>
-                    <footer>crawler-to-rdf, ${project.version}</footer>
-                    <doctitle>crawler-to-rdf, ${project.version}</doctitle>
+                    <header>tag-notes, ${project.version}</header>
+                    <footer>tag-notes, ${project.version}</footer>
+                    <doctitle>tag-notes, ${project.version}</doctitle>
                 </configuration>
             </plugin>
 
