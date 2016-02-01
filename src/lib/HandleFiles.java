@@ -10,10 +10,12 @@
 
 package lib;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -21,20 +23,23 @@ import java.util.stream.Stream;
  */
 public class HandleFiles {
 
-    public String openText() {
+    public List<String> openTextFile() {
 
         final String fileName = "parse.txt";
         final String getFilePath = Paths.get(Paths.get("").toAbsolutePath().toString(), "src", "resources", fileName).toString();
 
-        final File currTxtFile = new File(getFilePath);
+        // Probably not the wisest thing to do to create a list from a text file.
+        // But for getting the thing on the road it should be ok for now.
+        List<String> retList = new ArrayList<>();
 
-        try (Stream<String> stream = Files.lines(Paths.get(getFilePath))) {
-            stream.forEach(System.out::println);
+        try {
+            Stream<String> stream = Files.lines(Paths.get(getFilePath));
+            retList = stream.collect(Collectors.toList());
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return getFilePath;
+        return retList;
     }
 
 }

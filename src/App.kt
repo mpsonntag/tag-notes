@@ -9,15 +9,14 @@
  */
 
 import lib.HandleFiles
-import kotlin.io.*
+import lib.ParseList
 
 /**
  * Read in provided text file, parse syntax and add to provided RDF file.
  */
 fun main(args: Array<String>) {
 
-    val getFileStr = HandleFiles().openText()
-
-    println(getFileStr)
+    val getFileStr = HandleFiles().openTextFile()
+    val getEntityList = ParseList.parseStringList(getFileStr)
 
 }
