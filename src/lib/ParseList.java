@@ -35,7 +35,7 @@ public final class ParseList {
         for (String currLine : toParse) {
             currLineNr = currLineNr + 1;
 
-            if (currLine.contains("(#)")) {
+            if (currLine.startsWith("(#)")) {
 
                 if (!currLine.endsWith("#)")) {
                     System.out.println(String.join("", "[WARNING] Encountered incomplete Tag line at line ",
