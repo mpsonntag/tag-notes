@@ -35,5 +35,10 @@ mach das ganze mit public/private key und man kann wunderbar gesichert von über
 
 - irgendwas das offene punkte als done!(yay) markiert - damit man die aus suchen ausblenden kann oder zumindest ausgraut.
 
+(#)incomplete
+- test
+- these incomplete
+- tags
+
 (#)tagNotes#)
 wenn ich nur ein dump interface mach, dann brauch ich kein changelog, weil ich die älteren einträge beim dumpen gar nicht berücksichtige. für änderungen gibts ne eigene ui.
