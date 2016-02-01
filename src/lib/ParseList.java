@@ -38,13 +38,14 @@ public final class ParseList {
             if (currLine.startsWith("(#)")) {
 
                 if (!currLine.endsWith("#)")) {
-                    System.out.println(String.join("", "[WARNING] Encountered incomplete Tag line at line ",
+                    System.out.println(String.join("", "[WARNING:", currLineNr.toString(),
+                            "] Encountered incomplete Tag line at line ",
                             currLineNr.toString(), ". ",
                             "All lines until the next proper tag line will be ignored."));
                     properTag = false;
                 } else {
                     properTag = true;
-                    System.out.println("[DEBUG] TagLine");
+                    System.out.println(String.join("", "[DEBUG:", currLineNr.toString(), "] TagLine"));
 
                     retList.add(new TaggedEntity());
 
@@ -58,18 +59,19 @@ public final class ParseList {
                     }
                 }
             } else if (!retList.isEmpty() & properTag)  {
-                System.out.println("[DEBUG] BodyLine");
+                System.out.println(String.join("", "[DEBUG:", currLineNr.toString(), "] BodyLine"));
 
                 String currString = retList.get(retList.size()-1).getBody();
                 retList.get(retList.size()-1).setBody(
                         String.join("", currString, currLine, "\n")
                 );
             } else {
-                System.out.println("[WARNING] Found line not connected to a tag, will be omitted.");
+                System.out.println(String.join("", "[WARNING:", currLineNr.toString(),
+                        "] Found line not connected to a tag, will be omitted."));
             }
         }
 
-        System.out.println(String.join("", "[DEBUG] # of Tagged entities: ",
+        System.out.println(String.join("", "\n\n[DEBUG] # of Tagged entities: ",
                 Integer.toString(retList.size()))
         );
 
