@@ -19,21 +19,28 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
+ * Prototype class.
  * Read and write files.
  */
 public class HandleFiles {
 
-    public List<String> openTextFile() {
+    /**
+     * Prototype method.
+     * Opening a text file from resources and return the content as a list of Strings.
+     * @return List of strings, each list entry corresponds to a line from the text file.
+     */
+    public final List<String> openTextFile() {
 
         final String fileName = "parse.txt";
-        final String getFilePath = Paths.get(Paths.get("").toAbsolutePath().toString(), "src", "main/resources", fileName).toString();
+        final String getFilePath = Paths.get(
+                Paths.get("").toAbsolutePath().toString(), "src", "main/resources", fileName).toString();
 
         // Probably not the wisest thing to do to create a list from a text file.
         // But for getting the thing on the road it should be ok for now.
         List<String> retList = new ArrayList<>();
 
         try {
-            Stream<String> stream = Files.lines(Paths.get(getFilePath));
+            final Stream<String> stream = Files.lines(Paths.get(getFilePath));
             retList = stream.collect(Collectors.toList());
         } catch (IOException e) {
             e.printStackTrace();
