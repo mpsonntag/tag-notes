@@ -1,32 +1,11 @@
-(#)software,planing,tagNotes#)
-ein textfile - in dieses textfile kann ich alles reindumpen was ich will. jeder eintrag wird getagt und automatisch in die passenden kategorien übertragen - mit datum und zusätzlichen metadaten, etc, etc. durch multiple tags kann man sich einfach unterschiedliche ansichten von daten ermöglichen
-das ganze macht mit rdf unglaublich viel sinn! hier kann ich extrem einfach, textbasiert arbeiten, solang ich mich an eine gewisse syntax halte kann ich ganz einfach daten aus dem textfile in eine rdf konforme struktur überführen. mittels rdf kann ich dann aus meinen daten ganz einfach reports erstellen z.b. zeig mir nach datum sortiert alle einträge zu tag "software" und "datenbank" an. oder zu "meine downloads" etc. oder "mein project #1"
-mach das ganze mit public/private key und man kann wunderbar gesichert von überall her mit dem ding arbeiten.
+(#)tag1, tag2 , tag3 #)
+- parse
+- this
 
-(#)software,planing,features,tagNotes#)
-- most used tags als feature
-- zusammenfassung von tags muss einfach möglich sein - combine tags "1" + "2" + "3" using new tag name "zahlen"
-- metadaten: datum, uhrzeit, source (filesignatur), location, welches eingabegerät, welche codierung (für automatische conversion für die anzeige, je nachdem welches system ich für die anzeige verwend - z.b. wenn ich auf linux mit ascii eingegeben hab unds jetzt auf windows unter utf-8 anschauen will -> es wird alles gedumpt, aber die anzeige wird ans gerät angepasst!)
-- lizenzen anschauen!
-- überlegen wie ich das mit mehrfacheinträgen mach z.b. jemand verwendet immer dasselbe textfile aber appended unten zeugs. wenn ich das textfile parse, wie unterscheide ich, was ich bereits importiert hab und was neu ist? z.b. jeder eintrag kriegt einen zusätzlichen "md5" metadata tag, der nur auf den inhalt abziehlt. falls der md5 von einem neuen entry mit einem bestehenden übereinstimmt, dann prüfen ob tags dieselben sind, wenn ja, dann ignorieren, sonst fragen, ob selber inhalt und tags mergen. wie das bei inhaltlichen updates funktioniert noch genauer überlegen.
-- wo soll meine datenbank liegen? wie mach ich das einfach verfügbar?
-- wenn ich bilder, videos etc verlinke, was passiert, wenn diese resourcen nicht mehr verfügbar sind oder wenn sie von der aktuellen location aus nicht verfügbar sind? option "immer verfügbar" auszuwählen?
-- verschiedene sicherheitsstufen für unterschiedliche tags? damit ich anderen zu bestimmten tags zugang gewähren kann?
-- einbindung von new media? damit ich einzelne tags oder einträge einfach posten kann?
-- verschiedene einstiegs möglichkeiten von wo aus ich in meine datenbank dumpen kann: texteditor + tool, website + ff plugin, etc, etc.
-- überlegen, wie das mit digital labbook zu verbinden ist!!!!
-- kann ich da auch excel oder sonstiges einfach als csv reindumpen und wieder auslesen? wie ist das mit enthaltenen funktionen etc?
-- wenn neue entries, dann lock auf die rdf datenbank, falls distributed gearbeitet werden möchte
-- kann ich meine tags dann als graph anzeigen und zu den einträgen zusätzliche annotations machen? das wäre natürlich supercool! das wäre auch für unser projekt extrem spitzenmäßig.
-- möglichkeit tags komplett umzubenennen
-- wenn ich eine anwendung mach: wenn online, sofort in db übernehmen, wenn offline, in txt dumpen und beim nächsten online automatisch updaten.
-- wie whitespaces in tags handlen? autoreplace? wie mit typos in tags umgehen? permutation check? dafür gleich eine kompilierte liste von allen vorhandenen tags bereithalten wg geschwindigkeit? wie ist das dann mit speicherplatz?
-- es muss ein low level ansatz sein tags umzubenennen - einfach draufklicken und sagen- so sollen alle tags anders heissen -> anhängigkeiten zu tagsprüfungen berücksichtigen -> plus abgleich auf offline resources berücksichtigen.
-- connect to an existing rdf db - use pw
-- für files - paralleles online repository for files, these are linked via rdf but encrypted as well - or "use encryption"/"upload linked files".
-- changelog? immer wenn ich einen eintrag modifiziere, speicher ich die neue version und verschiebe die alte in einen durchnummerierten versionstag mit ursprünglichem datum, das aber normalerweise nicht mehr sichtbar ist.
-- könnt man großartig als schriftstellersoftware verwenden - einfach zeugs mit dem passenden tags reindumpen und dann später nach tag raussuchen was man haben möcht. allerdings bräucht man zu den tags noch einen untertag zur nummerierung, damit man z.b. entweder nach datum oder nach eigener nummerierung sortieren kann.
-- i can easily create sub categories by adding tags e.g. if i have a todo list, i can add (#)open#) or (#)done#) to specifically filter.
+- text
+
+(#) tag1 , tag2,TAG3,Tag4#)
+- check if in text tags (#)open#) or (#)done#) are not parsed.
 - we could use a very low level markup language like markdown to format text
 - doi resolver?
 - option to see changelog for each and every entry - usually not eingeblendet.
@@ -35,10 +14,18 @@ mach das ganze mit public/private key und man kann wunderbar gesichert von über
 
 - irgendwas das offene punkte als done!(yay) markiert - damit man die aus suchen ausblenden kann oder zumindest ausgraut.
 
-(#)incomplete
+(#)tag1, incomplete
 - test
 - these incomplete
 - tags
 
 (#)tagNotes#)
-wenn ich nur ein dump interface mach, dann brauch ich kein changelog, weil ich die älteren einträge beim dumpen gar nicht berücksichtige. für änderungen gibts ne eigene ui.
+complete in between entry
+
+(#)tag1, multi,
+line, tags#)
+- find out whether this
+- should
+- work
+or not.
+
